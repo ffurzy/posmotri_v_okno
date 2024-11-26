@@ -1,4 +1,5 @@
-/*Я сделал такие изначальные оутлайне элементам outline: 1px solid transparent; так как при табе все элементы немного сдвигаются. Не знаю на сколько это было важно
+/*Я сделал такие изначальные оутлайны элементам outline: 1px solid transparent;+ размеры , так как при табе все элементы немного сдвигаются. Не знаю на сколько это было важно
+
 */
 
 *,
@@ -61,7 +62,7 @@ ol {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: flex-start;
   gap: 30px;
   max-width: 1140px;
   min-height: 534px;
@@ -70,36 +71,34 @@ ol {
 .result {
   display: flex;
   flex-direction: column;
+  margin-top: 78px;
 }
 
 .result__video-container {
   position: relative;
-  /*min-width: 711px;
-  min-height: 386px; не знаю на сколько принципиально задавать размеры у этого блока. Но я когда задаю тут, а потом у result__video ставлю 100% он почемуты встает не под размер контейнера, а по высоте больше него*/ 
+  min-width: 711px;
+  max-height: 386px;  
+  overflow: hidden;
 }
 
 .result__video {
   display: block; /*еле разобрался откуда брался отступ в 5px*/
   width: 100%;
-  min-width: 711px;
-  max-height: 386px;
+  height: 100%;
   object-fit: cover;
-  overflow: hidden;
 }
 
 .search-form {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
-  /*gap: 40px; убрал гап и поставил space-between если я их прижимаю к началу и делую отступы через гап или отступы кнопка заезжает на другой блок и никак не понимаю как пофиксить если это проблема буду думать дальше*/ 
-  max-width: 711px;
+  gap: 40px;  
   margin-top: 16px;
 }
 
 .search-form__fieldset {
   border: none;
-  
 }
 
 .search-form__fieldset-title {
@@ -113,28 +112,46 @@ ol {
 
 .search-form__label {
   display: flex; 
-  align-items: center; 
-  gap: 5px; 
+  align-items: center;
   width: fit-content;
-  
   outline: 1px solid transparent;
-  outline-offset: 2px; 
+  outline-offset: 1px; 
   cursor: pointer;
+  margin-right: 15px;
 }
 
-.search-form__label-text {
-  margin-right: 15px;
+.search-form__label:last-child {
+  margin-right: 0;
 }
 
 .search-form__label:hover .search-form__label-text {
   text-decoration: underline; 
 }
 
+.button { 
+  color: #fff;
+  font-family: "Fira Sans Condensed";
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 21.6px;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.search-form__submit-button {
+  align-self: flex-end;
+  width: 194px;
+  height: 34px;
+  margin-top: auto;
+  border: 1px solid #fff;
+  outline: 1px solid transparent; /**/
+  outline-offset: 1px; /**/
+}
+
 .search-form__textfield {
   width: 225px;
   height: 27px;
-  
-  outline: none; /* Убираем стандартное выделение фокуса */
+  outline: none; 
   font-family: "Fira Sans Condensed";
   font-weight: 400;
   font-size: 18px;
@@ -145,7 +162,7 @@ ol {
   border: 1px solid #fff;
   border-right: 0;
   border-left: 0;
-  margin-right: 15px;
+  color: #fff;
 }
 
 .search-form__textfield:focus {
@@ -167,11 +184,12 @@ ol {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 19px; /* Размер чекбокса */
-  height: 19px; /* Размер чекбокса */
+  width: 19px; 
+  height: 19px; 
   border: 1px solid #fff;
   background-color: transparent;
   cursor: pointer;
+  margin-right: 5px;
 }
 
 .search-form__pseudo-checkbox::after {
@@ -199,6 +217,7 @@ ol {
   flex-grow: 1;
   min-width: 399px;
   height: auto;
+  justify-content: flex-start;
 }
 
 .title {
@@ -209,6 +228,7 @@ ol {
   line-height: 70.5px;
   text-align: left;
   text-transform: uppercase;
+  
 }
 
 .content__accent {
@@ -234,7 +254,7 @@ ol {
   display: block;
   margin: 3px;
   outline: 1px solid transparent;
-  outline-offset: 2px;
+  outline-offset: 1px;
   color: #fff;
   text-decoration: none;
 }
@@ -298,44 +318,34 @@ ol {
   object-fit: cover;
 }
 
-.button {
+.more-button {
+  width: 395px;
+  height: 33px;
   border: 1px solid #fff;
-  outline: 1px solid transparent;
-  outline-offset: 2px;
-  color: #fff;
-  font-family: "Fira Sans Condensed";
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 21.6px;
-  background-color: transparent;
-  cursor: pointer;
+  outline: 1px solid transparent; /**/
+  outline-offset: 1px; 
+  margin: 2px;
+  
 }
 
-.button:focus {
+/* Общие стили для кнопок */
+.search-form__submit-button:focus,
+.more-button:focus {
   outline: none;
 }
 
-.button:hover {
+.search-form__submit-button:hover,
+.more-button:hover {
   text-decoration: underline;
 }
 
-.button:active {
+.search-form__submit-button:active,
+.more-button:active {
   text-decoration: none;
   background-color: #545050;
 }
 
-.button:focus-visible {
+.search-form__submit-button:focus-visible,
+.more-button:focus-visible {
   outline: 1px solid #fff;
-}
-
-.search-form__submit-button {
-  align-self: flex-end;
-  width: 194px;
-  height: 34px;
-  margin-top: auto;
-}
-
-.more-button {
-  width: 399px;
-  height: 34px;
 }

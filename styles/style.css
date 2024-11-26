@@ -18,7 +18,7 @@ html {
   align-items: center;
   margin: auto;
   color: #fff;
-  font-family: "Fira Sans Condensed";
+  font-family: "Fira Sans Condensed", "Arial", sans-serif;
   font-size: 18px;
   background-color: #1b1919;
   inline-size: 1200px;
@@ -65,7 +65,6 @@ ol {
   align-items: flex-start;
   gap: 30px;
   max-width: 1140px;
-  min-height: 534px;
 }
 
 .result {
@@ -77,8 +76,7 @@ ol {
 .result__video-container {
   position: relative;
   min-width: 711px;
-  max-height: 386px;  
-  overflow: hidden;
+  height: 386px;
 }
 
 .result__video {
@@ -130,34 +128,54 @@ ol {
 
 .button { 
   color: #fff;
-  font-family: "Fira Sans Condensed";
+  font-family: "Fira Sans Condensed", "Arial", sans-serif;
   font-weight: 700;
   font-size: 18px;
   line-height: 21.6px;
   background-color: transparent;
   cursor: pointer;
+  padding: 6px 0;
+  border: 1px solid #fff;
+  outline: 1px solid transparent;
+  outline-offset: 1px;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button:hover {
+  text-decoration: underline;
+}
+
+.button:active {
+  text-decoration: none;
+  background-color: #545050;
+}
+
+.button:focus-visible {
+  outline: 1px solid #fff;
 }
 
 .search-form__submit-button {
-  align-self: flex-end;
+  /*align-self: flex-end; не понимаю что из этого лучше использовать */
   width: 194px;
-  height: 34px;
-  margin-top: auto;
+  margin-top: auto; /*не понимаю что из этого лучше использовать */
   border: 1px solid #fff;
-  outline: 1px solid transparent; /**/
-  outline-offset: 1px; /**/
+  outline: 1px solid transparent; 
+  outline-offset: 1px; 
 }
 
 .search-form__textfield {
   width: 225px;
-  height: 27px;
+  min-height: 27px;
   outline: none; 
-  font-family: "Fira Sans Condensed";
+  font-family: inherit; /*как понимаю здесь мы унаследует от близжайшего page*/
   font-weight: 400;
   font-size: 18px;
   line-height: 21.6px;
   background-color: transparent;
-  cursor: pointer; /*Нужно ли поле кликабельным?*/
+  cursor: text; /*провтыкал*/
   appearance: none;
   border: 1px solid #fff;
   border-right: 0;
@@ -177,7 +195,7 @@ ol {
 .search-form__checkbox-list {
   display: flex;
   flex-direction: row;
-  align-items: center; /* Выравниваем элементы по вертикали НУЖНО?*/
+  align-items: center;
 }
 
 .search-form__pseudo-checkbox {
@@ -222,13 +240,12 @@ ol {
 
 .title {
   margin-bottom: 22px;
-  font-family: "Oswald";
+  font-family: "Oswald", "Arial Narrow", sans-serif;
   font-weight: 700;
   font-size: 75px;
   line-height: 70.5px;
   text-align: left;
   text-transform: uppercase;
-  
 }
 
 .content__accent {
@@ -283,7 +300,7 @@ ol {
 .content__video-card-title {
   padding-top: 3px;
   padding-bottom: 6px;
-  font-family: "Oswald";
+  font-family: "Oswald", "Arial Narrow", sans-serif;
   font-weight: 700;
   font-size: 30px;
   line-height: 30px;
@@ -320,16 +337,13 @@ ol {
 
 .more-button {
   width: 395px;
-  height: 33px;
-  border: 1px solid #fff;
-  outline: 1px solid transparent; /**/
-  outline-offset: 1px; 
   margin: 2px;
-  
 }
 
-/* Общие стили для кнопок */
-.search-form__submit-button:focus,
+/* Я изначально так и сделал а потом исправил на это хаха, я наоборот подумал, что если вдруг у нас появится другая кнопка у которой при :active я захочу другое поведение, я просто задам это в другом классе а не .button, но в целом логику понимаю*/
+
+
+/*.search-form__submit-button:focus,
 .more-button:focus {
   outline: none;
 }
@@ -348,4 +362,4 @@ ol {
 .search-form__submit-button:focus-visible,
 .more-button:focus-visible {
   outline: 1px solid #fff;
-}
+}*/

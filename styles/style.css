@@ -54,9 +54,7 @@ ol {
   white-space: nowrap;
 }
 
-::-webkit-scrollbar {
-  width: 0;
-}
+
 
 .content {
   display: flex;
@@ -257,6 +255,7 @@ ol {
   max-height: 298px;
   overflow-x: hidden;
   overflow-y: auto;
+  margin-right: -17px;
 }
 
 .content__list-item {
